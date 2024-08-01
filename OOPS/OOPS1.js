@@ -1,3 +1,4 @@
+"use strict";
 // //OPPS
 // //class is a blue print of object
 // class Student{
@@ -21,21 +22,6 @@
 // let stud:Student = new Student("Tom",1,true);
 // console.log(stud);
 // stud.addStudent([]);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 // //inheritance
 // class Volounter extends Student{
 //     classes:string[];
@@ -99,42 +85,82 @@ var __extends = (this && this.__extends) || (function () {
 // console.log(car)
 //Polymorphism
 // Parent class ke methods and Properties ko child class ma override krna Polymorphism ha
-var Student = /** @class */ (function () {
-    function Student(name, id) {
+// class Student{
+//     name:string;
+//    private id:number;
+//     constructor(name:string,id:number) {
+//         this.name = name;
+//         this.id = id;
+//     }
+//    get callName(){
+//        return this.id;
+//     }
+// };
+// class Monitor extends Student{
+//     isMonitor:boolean
+// constructor(name:string, id:number,isMonitor:boolean) {
+//         super(name,id);
+//         this.isMonitor = isMonitor;
+//     }
+//    get callName(){
+//         return 45;
+//     }
+// };
+// let stud:Student = new Student("Tom",1);
+// let vlount:Monitor = new Monitor("Jerry",2,true);
+// console.log(stud);
+// console.log(vlount);
+// console.log(stud.callName);
+// console.log(vlount.callName);
+// console.log(stud);
+class Student {
+    name;
+    id;
+    constructor(name, id) {
         this.name = name;
         this.id = id;
     }
-    Object.defineProperty(Student.prototype, "callName", {
-        get: function () {
-            return this.id;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return Student;
-}());
-;
-var Monitor = /** @class */ (function (_super) {
-    __extends(Monitor, _super);
-    function Monitor(name, id, isMonitor) {
-        var _this = _super.call(this, name, id) || this;
-        _this.isMonitor = isMonitor;
-        return _this;
+    getID = () => {
+        console.log(this.id);
+    };
+    getID2() {
+        console.log(this.id);
     }
-    Object.defineProperty(Monitor.prototype, "callName", {
-        get: function () {
-            return 45;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return Monitor;
-}(Student));
+}
 ;
-var stud = new Student("Tom", 1);
-var vlount = new Monitor("Jerry", 2, true);
-console.log(stud);
-console.log(vlount);
-console.log(stud.callName);
-console.log(vlount.callName);
-console.log(stud);
+let stud = new Student("Ben", 1);
+// let cals =  stud.getID;
+// cals();
+// let cals2 =stud.getID2;
+// cals2();
+// let arrw = () => {
+//     console.log(this);
+// };
+// arrw();
+// function decrle(){
+//     console.log(this)
+// };
+// decrle();
+let obj = {
+    name: "Ben",
+    callN: function () {
+        console.log(this.name);
+    }
+};
+class CarCls {
+    name;
+    static names = "Hello";
+    constructor(name) {
+        this.name = name;
+    }
+    getName = () => {
+        console.log(this.name);
+    };
+    static getName2() {
+        console.log(this.names);
+    }
+}
+;
+let carCls = new CarCls("hi");
+carCls.getName();
+CarCls.getName2();

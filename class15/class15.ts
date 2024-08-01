@@ -69,7 +69,7 @@ const instncOf = (pet:Cat|Dog) =>{
 };
 let dog = new Dog();
 let cat = new Cat();
-instncOf(dog)
+instncOf(dog);
 
 
 interface Square {

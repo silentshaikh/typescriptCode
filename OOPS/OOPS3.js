@@ -1,81 +1,58 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+"use strict";
 //constructor
 //Case 1
-var Parent = /** @class */ (function () {
-    function Parent(name, age) {
+class Parent {
+    name;
+    age;
+    constructor(name, age) {
         this.name = name;
         this.age = age;
     }
-    return Parent;
-}());
+}
 ;
-var Child = /** @class */ (function (_super) {
-    __extends(Child, _super);
-    function Child() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return Child;
-}(Parent));
+class Child extends Parent {
+}
 ;
-var parent1 = new Parent("Thomas", 37);
-var child = new Child("tom", 10);
+let parent1 = new Parent("Thomas", 37);
+let child = new Child("tom", 10);
 console.log(child instanceof Child);
 //Case 2
-var A = /** @class */ (function () {
-    function A() {
-    }
-    return A;
-}());
+class A {
+}
 ;
-var B = /** @class */ (function (_super) {
-    __extends(B, _super);
-    function B(name, id) {
-        var _this = _super.call(this) || this;
-        _this.name = name;
-        _this.id = id;
-        return _this;
+class B extends A {
+    name;
+    id;
+    constructor(name, id) {
+        super();
+        this.name = name;
+        this.id = id;
     }
-    return B;
-}(A));
+}
 ;
-var a = new A();
-var b = new B("Ben", 11);
+let a = new A();
+let b = new B("Ben", 11);
 console.log(a);
 console.log(b);
 //Case 3
-var C = /** @class */ (function () {
-    function C(name) {
+class C {
+    name;
+    constructor(name) {
         this.name = name;
     }
-    return C;
-}());
+}
 ;
-var D = /** @class */ (function (_super) {
-    __extends(D, _super);
-    function D(name, age) {
-        var _this = _super.call(this, name) || this;
-        _this.name = name;
-        _this.age = age;
-        return _this;
+class D extends C {
+    name;
+    age;
+    constructor(name, age) {
+        super(name);
+        this.name = name;
+        this.age = age;
     }
     ;
-    return D;
-}(C));
-var c = new C("Jerry");
-var d = new D("Jerry", 8);
+}
+let c = new C("Jerry");
+let d = new D("Jerry", 8);
 console.log(c);
 console.log(d);

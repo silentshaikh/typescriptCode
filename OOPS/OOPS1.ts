@@ -89,31 +89,74 @@
 
 //Polymorphism
 // Parent class ke methods and Properties ko child class ma override krna Polymorphism ha
-class Student{
-    name:string;
-   private id:number;
-    constructor(name:string,id:number) {
-        this.name = name;
-        this.id = id;
-    }
-   get callName(){
-       return this.id;
+// class Student{
+//     name:string;
+//    private id:number;
+//     constructor(name:string,id:number) {
+//         this.name = name;
+//         this.id = id;
+//     }
+//    get callName(){
+//        return this.id;
+//     }
+// };
+// class Monitor extends Student{
+//     isMonitor:boolean
+// constructor(name:string, id:number,isMonitor:boolean) {
+//         super(name,id);
+//         this.isMonitor = isMonitor;
+//     }
+//    get callName(){
+//         return 45;
+//     }
+// };
+// let stud:Student = new Student("Tom",1);
+// let vlount:Monitor = new Monitor("Jerry",2,true);
+// console.log(stud);
+// console.log(vlount);
+// console.log(stud.callName);
+// console.log(vlount.callName);
+// console.log(stud);
+class Student {
+    constructor(public name:string,public id:number) {}
+    getID = () => {
+        console.log(this.id);
+    };
+    getID2(){
+        console.log(this.id);
     }
 };
-class Monitor extends Student{
-    isMonitor:boolean
-constructor(name:string, id:number,isMonitor:boolean) {
-        super(name,id);
-        this.isMonitor = isMonitor;
-    }
-   get callName(){
-        return 45;
+let stud = new Student("Ben",1);
+// let cals =  stud.getID;
+// cals();
+// let cals2 =stud.getID2;
+// cals2();
+// let arrw = () => {
+//     console.log(this);
+// };
+// arrw();
+// function decrle(){
+//     console.log(this)
+// };
+// decrle();
+let obj = {
+    name:"Ben",
+    callN:function() {
+        console.log(this.name);
     }
 };
-let stud:Student = new Student("Tom",1);
-let vlount:Monitor = new Monitor("Jerry",2,true);
-console.log(stud);
-console.log(vlount);
-console.log(stud.callName);
-console.log(vlount.callName);
-console.log(stud);
+class CarCls{
+    static names:string = "Hello";
+    constructor(public name:string) {
+        
+    }
+    getName = () => {
+        console.log(this.name)
+    }
+    static getName2(){
+        console.log(this.names)
+    }
+};
+let carCls = new CarCls("hi");
+carCls.getName();
+CarCls.getName2();
